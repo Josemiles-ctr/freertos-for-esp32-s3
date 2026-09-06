@@ -1,0 +1,7 @@
+[wokwi]
+version = 1
+elf = "build/practice.elf"
+firmware = "build/practice.bin"
+
+[editor]
+version = 1
