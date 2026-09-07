@@ -6,65 +6,44 @@
     {
       "type": "board-esp32-s3-devkitc-1",
       "id": "esp",
-      "top": -57.78,
-      "left": -24.23,
-      "attrs": {
-        "builder": "esp-idf"
-      }
+      "top": 0,
+      "left": 0,
+      "attrs": {}
     },
     {
-      "type": "wokwi-led",
-      "id": "led1",
-      "top": -80.4,
-      "left": 138.2,
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": 32.8,
+      "left": 202.7,
       "attrs": {
-        "color": "green"
+        "common": "cathode"
       }
     },
     {
       "type": "wokwi-resistor",
       "id": "r1",
-      "top": 4.8,
-      "left": 153.05,
+      "top": 148.8,
+      "left": 181.85,
       "rotate": 90,
       "attrs": {
         "value": "1000"
-      }
-    },
-    {
-      "type": "wokwi-led",
-      "id": "led2",
-      "top": -51.6,
-      "left": -178.6,
-      "attrs": {
-        "color": "red"
       }
     },
     {
       "type": "wokwi-resistor",
       "id": "r2",
-      "top": 24,
-      "left": -163.75,
+      "top": 148.8,
+      "left": 201.05,
       "rotate": 90,
       "attrs": {
         "value": "1000"
       }
     },
     {
-      "type": "wokwi-led",
-      "id": "led3",
-      "top": 82.8,
-      "left": 205.4,
-      "attrs": {
-        "color": "orange",
-        "flip": ""
-      }
-    },
-    {
       "type": "wokwi-resistor",
       "id": "r3",
-      "top": 177.6,
-      "left": 210.65,
+      "top": 148.8,
+      "left": 220.25,
       "rotate": 90,
       "attrs": {
         "value": "1000"
@@ -85,85 +64,67 @@
       []
     ],
     [
-      "r1:2",
-      "esp:2",
-      "green",
-      [
-        "h-67.75",
-        "v-29.15"
-      ]
-    ],
-    [
-      "led1:C",
+      "rgb1:COM",
       "esp:GND.2",
       "green",
       [
-        "h-18.8",
-        "v-9.6",
-        "h-240"
+        "v-0.4",
+        "h-105.5",
+        "v-57.42"
       ]
     ],
     [
-      "led1:A",
+      "rgb1:R",
       "r1:1",
       "green",
       [
-        "v19.2",
-        "h19.2"
+        "v48"
       ]
     ],
     [
-      "led2:C",
-      "esp:GND.1",
+      "r1:2",
+      "esp:21",
       "green",
       [
-        "v182.4",
-        "h144.4"
+        "v8.4",
+        "h-115.2",
+        "v0.18"
       ]
     ],
     [
-      "led2:A",
+      "rgb1:G",
       "r2:1",
       "green",
       [
-        "v9.6",
-        "h19.2"
+        "v48",
+        "h1.3"
       ]
     ],
     [
       "r2:2",
-      "esp:4",
+      "esp:20",
       "green",
       [
-        "h86.4",
-        "v-58.8"
+        "v18",
+        "h-134.4",
+        "v0.18"
       ]
     ],
     [
       "r3:2",
-      "esp:9",
+      "esp:19",
       "green",
       [
-        "v37.85",
-        "h-288",
-        "v-144.65"
+        "v27.6",
+        "h-158.17"
       ]
     ],
     [
       "r3:1",
-      "led3:A",
+      "rgb1:B",
       "green",
       [
-        "v-28.8"
-      ]
-    ],
-    [
-      "led3:C",
-      "esp:GND.4",
-      "green",
-      [
-        "v48",
-        "h-153.2"
+        "v-48"
       ]
     ]
   ],
