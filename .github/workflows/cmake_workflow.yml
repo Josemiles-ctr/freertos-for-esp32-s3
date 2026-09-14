@@ -1,0 +1,20 @@
+name: Build and run executable
+on:
+  push:
+    branches: ["main"]
+
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: build
+        run: |
+          cmake -S . -B build
+          cmake --build build
+          ctest --test-dir build
