@@ -1,0 +1,4 @@
+#ifndef SEVEN_SEGMENT_WITH_SHIFT_REGISTER_H
+#define SEVEN_SEGMENT_WITH_SHIFT_REGISTER_H
+void run_numbers();
+#endif

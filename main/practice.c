@@ -1,8 +1,6 @@
-#include "../include/task_notifications.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
+#include "../include/seven_segment_with_shift_register.h"
 
 void app_main(void)
 {
-    task_Notifications();
+   run_numbers();
 }
