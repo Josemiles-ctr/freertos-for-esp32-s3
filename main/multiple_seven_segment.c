@@ -22,7 +22,7 @@ static gpio_num_t segments[7]={
     DIG3,
     DIG4,
 };
-static const uint8_t digits[4] = {
+static const uint8_t digits[5] = {
     0b01011011, // 2
     0b01101101, // 5
     0b10000000, //dp
