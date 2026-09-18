@@ -22,83 +22,45 @@ static gpio_num_t segments[]={
     sevseg_G, 
     sevseg_DP,
 };
+// 000010101
+#include <stdint.h>
+//        a
+//      *****
+//    f * g * b
+//      *****
+//    e *   * c
+//      *****
+//        d
+static const uint8_t digits[10] = {
+        0b00111111, // 0
+        0b00000110, // 1
+        0b01011011, // 2
+        0b01001111, // 3
+        0b01100110, // 4
+        0b01101101, // 5
+        0b01111101, // 6
+        0b00000111, // 7
+        0b01111111, // 8
+        0b01101111  // 9
+    };
 static void gpio_init(){
-    for (int i=0; i < sizeof(segments)/ sizeof(segments[0]); i++){
-        gpio_reset_pin(segments[i]);
-        gpio_set_direction(segments[i], GPIO_MODE_OUTPUT);
-        gpio_set_level(segments[i], 0);
+        for (int i=0; i < sizeof(segments)/ sizeof(segments[0]); i++){
+            gpio_reset_pin(segments[i]);
+            gpio_set_direction(segments[i], GPIO_MODE_OUTPUT);
+            gpio_set_level(segments[i], 0);     
+        }
     }
+void display_digits(){
+    for(int n=0; n<sizeof(digits)/ sizeof(digits[0]); n++){
+        for (int bit = 0; bit < 8; bit++){
+            gpio_set_level( segments[bit],(digits[n] >> bit) & 1);
+        }
+        vTaskDelay(pdMS_TO_TICKS(1000));
+  }
 }
-static void reset_pins(){
-    for (int i=0; i < sizeof(segments)/ sizeof(segments[0]); i++){
-        gpio_set_level(segments[i],0);
-    }
-    vTaskDelay(pdMS_TO_TICKS(1000));
-}
-
-void figure_zero(){
-    gpio_set_level(segments[0], 1);
-    gpio_set_level(segments[1], 1);
-    gpio_set_level(segments[2], 1);
-    gpio_set_level(segments[3], 1);
-    gpio_set_level(segments[4], 1);
-    gpio_set_level(segments[5], 1);
-    vTaskDelay(pdMS_TO_TICKS(1000));
-}
-
-void figure_one(){
-    gpio_set_level(segments[1], 1);
-    gpio_set_level(segments[2], 1);
-    vTaskDelay(pdMS_TO_TICKS(1000));
-}
-void figure_two(){
-    gpio_set_level(segments[0], 1);
-    gpio_set_level(segments[1], 1);
-    gpio_set_level(segments[3], 1);
-    gpio_set_level(segments[4], 1);
-    gpio_set_level(segments[6], 1);
-    vTaskDelay(pdMS_TO_TICKS(1000));
-}
-void figure_three(){
-    gpio_set_level(segments[0], 1);
-    gpio_set_level(segments[1], 1);
-    gpio_set_level(segments[2], 1);
-    gpio_set_level(segments[3], 1);
-    gpio_set_level(segments[6], 1);
-    vTaskDelay(pdMS_TO_TICKS(1000));
-}
-void figure_four(){
-    gpio_set_level(segments[1], 1);
-    gpio_set_level(segments[2], 1);
-    gpio_set_level(segments[5], 1);
-    gpio_set_level(segments[6], 1);
-    vTaskDelay(pdMS_TO_TICKS(1000));
-}
-void figure_five(){
-    gpio_set_level(segments[0], 1);
-    gpio_set_level(segments[2], 1);
-    gpio_set_level(segments[3], 1);
-    gpio_set_level(segments[5], 1);
-    gpio_set_level(segments[6], 1);
-    vTaskDelay(pdMS_TO_TICKS(1000));
-}
-void test_segments(void *pvParameters){
+void print_numbers(void *pvParameters){
     gpio_init();
-    while (1)
-    {
-        figure_zero();
-        reset_pins();
-        figure_one();
-        reset_pins();
-        figure_two();
-        reset_pins();
-        figure_three();
-        reset_pins();
-        figure_four();
-        reset_pins();
-        figure_five();
-        reset_pins();
+    while (1){
+        display_digits();
     }
-    
-
 }
