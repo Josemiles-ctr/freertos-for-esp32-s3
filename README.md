@@ -1,13 +1,13 @@
 # ESP32 Practice
 
-Just a bunch of ESP32 / ESP-IDF practice code I've been working through. Nothing serious, mostly me trying to get comfortable with FreeRTOS and basic GPIO stuff.
+Getting confortable with _esp_ _idf_ and _freetos_ through implementations ranging from _IO and IO DEVICES_.
 
 ## What's in here
 
-- **FreeRTOS basics** — tasks, queues, mutexes, semaphores, timers, and task notifications
-- **RGB LED** — cycles through primary and secondary colors by toggling the R/G/B pins
-- **7-segment display** — single display counting 0–9, plus a 4-digit multiplexed version driven through a shift register
-- **Wokwi** — the `.json` files and `wokwi.toml` are for simulating the boards in Wokwi
+- **FreeRTOS basics**  tasks, queues, mutexes, semaphores, timers, and task notifications
+- **RGB LED**  cycles through primary and secondary colors by toggling the R/G/B pins
+- **7-segment display**  single display counting 0–9, plus a 4-digit multiplexed version driven through a shift register
+- **Wokwi**  the `.json` files and `wokwi.toml` are for simulating the boards in Wokwi
 
 Each demo lives in its own file under `main/` (e.g. `queues.c`, `timers.c`, `seven_segment.c`). The entry point is `main/practice.c`, where you can swap in whichever example you want to run.
 
