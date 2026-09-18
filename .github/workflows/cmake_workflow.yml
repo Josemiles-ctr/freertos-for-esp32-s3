@@ -1,4 +1,5 @@
-name: Build and run executable
+name: Build ESP-IDF project
+
 on:
   push:
     branches: ["main"]
@@ -9,12 +10,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: build
+      - name: Set up ESP-IDF
+        uses: espressif/install-esp-idf-action@v1
+        with:
+          version: v6.1
+
+      - name: Build
         run: |
-          cmake -S . -B build
-          cmake --build build
-          ctest --test-dir build
+          idf.py build
