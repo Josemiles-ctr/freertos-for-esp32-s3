@@ -1,8 +1,6 @@
 #include "multiple_seven_segment.h"
 
 #include "driver/gpio.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
 
 #define DS      GPIO_NUM_2
 #define SHCP    GPIO_NUM_4

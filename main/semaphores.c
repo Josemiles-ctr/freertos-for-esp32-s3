@@ -4,7 +4,7 @@
 
 SemaphoreHandle_t semaphore=NULL;
 
-void producer(void * params){
+void producer(void * param){
     semaphore=xSemaphoreCreateBinary();
     while (1)
     {
@@ -14,7 +14,7 @@ void producer(void * params){
     }
     
 }
-void consumer(void * parama){
+void consumer(void * param){
     while (1)
     {
         xSemaphoreTake(semaphore, portMAX_DELAY);

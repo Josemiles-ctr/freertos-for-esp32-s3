@@ -14,8 +14,6 @@ void rgb_led_init(void *param) {
     gpio_set_direction(GREEN_LED_PIN, GPIO_MODE_OUTPUT);   
     gpio_set_direction(BLUE_LED_PIN, GPIO_MODE_OUTPUT);
 
-    /*Achieving primary colors by turning on one LED at a time, secondary colors by turning on two LEDs at a time with delays continuously in an infinite loop
-    */
     while(true){
         // Red
         gpio_set_level(RED_LED_PIN, 1);
