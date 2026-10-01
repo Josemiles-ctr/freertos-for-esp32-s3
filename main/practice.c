@@ -1,7 +1,7 @@
-#include "../include/parallel_lcd.h"
+#include "../include/keyboard_lcd_screen.h"
 #include <stddef.h>
 
 void app_main(void)
 {
-initialize_screen();
+    print_to_screen();
 }

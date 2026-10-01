@@ -43,10 +43,6 @@ void reset_and_set_pin_modes(void)
     gpio_set_direction(D5, GPIO_MODE_OUTPUT);
     gpio_set_direction(D6, GPIO_MODE_OUTPUT);
     gpio_set_direction(D7, GPIO_MODE_OUTPUT);
-
-    gpio_set_level(RS, 0);
-    gpio_set_level(RW, 0);
-    gpio_set_level(ENABLE, 0);
 }
 static void lcd_write_byte_command(uint8_t value)
 {
@@ -70,7 +66,7 @@ static void lcd_write_byte_command(uint8_t value)
 
 void initialize_task(void *param)
 {
-    (void)param;
+    
 
     reset_and_set_pin_modes();
 
